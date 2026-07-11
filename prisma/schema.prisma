@@ -1,0 +1,111 @@
+// Prisma schema for Yeti Tours & Treks
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum EnquiryType {
+  GENERAL
+  BOOKING
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  CONFIRMED
+  CLOSED
+}
+
+model Category {
+  id        String        @id @default(cuid())
+  slug      String        @unique
+  label     String
+  order     Int           @default(0)
+  packages  TourPackage[]
+  createdAt DateTime      @default(now())
+}
+
+model Destination {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  image       String
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Testimonial {
+  id        String   @id @default(cuid())
+  quote     String
+  name      String
+  place     String
+  initials  String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model TourPackage {
+  id             String        @id @default(cuid())
+  slug           String        @unique
+  title          String
+  category       Category      @relation(fields: [categoryId], references: [id])
+  categoryId     String
+  summary        String
+  overview       String
+  durationDays   Int
+  durationNights Int
+  locations      String
+  /// JSON-encoded string[] of highlight bullet points
+  highlights     String        @default("[]")
+  priceFrom      Float?
+  priceNote      String?
+  coverImage     String
+  featured       Boolean       @default(false)
+  published      Boolean       @default(true)
+  itinerary      ItineraryDay[]
+  enquiries      Enquiry[]
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  @@index([categoryId])
+}
+
+model ItineraryDay {
+  id          String      @id @default(cuid())
+  package     TourPackage @relation(fields: [packageId], references: [id], onDelete: Cascade)
+  packageId   String
+  dayNumber   Int
+  title       String
+  description String
+
+  @@unique([packageId, dayNumber])
+  @@index([packageId])
+}
+
+model Enquiry {
+  id         String        @id @default(cuid())
+  type       EnquiryType   @default(GENERAL)
+  package    TourPackage?  @relation(fields: [packageId], references: [id], onDelete: SetNull)
+  packageId  String?
+  name       String
+  email      String
+  phone      String?
+  country    String?
+  travelDate DateTime?
+  travelers  Int?
+  children   Int?
+  season     String?
+  interest   String?
+  message    String?
+  status     EnquiryStatus @default(NEW)
+  createdAt  DateTime      @default(now())
+
+  @@index([packageId])
+  @@index([status])
+}
