@@ -16,21 +16,33 @@ const CATEGORIES = [
 ];
 
 const COVER_IMAGES: Record<string, string[]> = {
+  // Tiger's Nest (alt angle), Buddha Dordenma, Punakha suspension bridge, Dochula Pass stupas
   cultural: [
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=70&w=800",
-    "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1644495949450-9a0fe21b7376?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1665732079615-322276af53d2?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1650747858910-5d48a4116296?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1640242633656-b77c2fa2d958?auto=format&fit=crop&q=70&w=800",
   ],
+  // Yoga at sunrise, misty Bhutan mountainside
   spiritual: [
-    "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1524863479829-916d8e77f114?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=70&w=800",
   ],
+  // Elegant lodge interior, riverside luxury valley
   luxury: [
     "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=70&w=800",
   ],
+  // Druk Path trekkers, misty ridge, alpine mountain
   trekking: [
+    "https://images.unsplash.com/photo-1662546803799-9a1d5532514f?auto=format&fit=crop&q=70&w=800",
     "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=70&w=800",
   ],
+  // Remote nature/valley (birding), romantic couple (honeymoon)
   specialty: [
     "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1586022045128-730988f570c9?auto=format&fit=crop&q=70&w=800",
   ],
 };
 
@@ -43,43 +55,49 @@ const DESTINATIONS = [
   {
     name: "Paro Valley",
     description: "Gateway city, home to Tiger's Nest and stunning heritage rice terraces.",
+    // Paro Taktsang (Tiger's Nest Monastery) clinging to the cliffside
     image:
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=70&w=500",
+      "https://images.unsplash.com/photo-1742539327304-4b60d48e14b4?auto=format&fit=crop&q=70&w=500",
     order: 1,
   },
   {
     name: "Thimphu",
     description: "The iconic capital with zero traffic lights, giant Buddha statues, and arts.",
+    // Buddha Dordenma, the great bronze statue overlooking Thimphu
     image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=70&w=500",
+      "https://images.unsplash.com/photo-1665732079615-322276af53d2?auto=format&fit=crop&q=70&w=500",
     order: 2,
   },
   {
     name: "Punakha",
     description: "The ancient winter capital containing the most beautiful riverside fortress palace.",
+    // A monk crossing the Punakha suspension bridge
     image:
-      "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=70&w=500",
+      "https://images.unsplash.com/photo-1650747858910-5d48a4116296?auto=format&fit=crop&q=70&w=500",
     order: 3,
   },
   {
     name: "Bumthang Valley",
     description: "The spiritual heartland packed with ancient myths and profound temples.",
+    // Druk Wangyal chortens (108 stupas) at Dochula Pass, central Bhutan
     image:
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=70&w=500",
+      "https://images.unsplash.com/photo-1640242633656-b77c2fa2d958?auto=format&fit=crop&q=70&w=500",
     order: 4,
   },
   {
     name: "Phobjikha Valley",
     description: "Stunning broad glacial marshes home to endangered overwintering black cranes.",
+    // Bhutanese valley with a temple set against blue mountains
     image:
-      "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=70&w=500",
+      "https://images.unsplash.com/photo-1578556886705-5913afc1d13f?auto=format&fit=crop&q=70&w=500",
     order: 5,
   },
   {
     name: "Haa Valley",
     description: "Isolated pristine ancestral alpine valley featuring raw nomadic cultures.",
+    // Remote Bhutanese river valley framed by mountains
     image:
-      "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=70&w=500",
+      "https://images.unsplash.com/photo-1665394767352-81fdf6db7ceb?auto=format&fit=crop&q=70&w=500",
     order: 6,
   },
 ];
@@ -252,7 +270,8 @@ const FEATURED_PACKAGES: Omit<SeedPackage, "slug">[] = [
     ],
     priceFrom: null,
     priceNote: "Custom Quotes via consultation",
-    coverImage: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=70&w=800",
+    // Couple embracing outdoors — romantic/honeymoon theme
+    coverImage: "https://images.unsplash.com/photo-1586022045128-730988f570c9?auto=format&fit=crop&q=70&w=800",
     featured: true,
     published: true,
     itinerary: [
@@ -273,6 +292,7 @@ async function buildPackagesFromDocx(): Promise<SeedPackage[]> {
 
   const files = fs.readdirSync(dir).filter((f) => f.toLowerCase().endsWith(".docx"));
   const packages: SeedPackage[] = [];
+  const categoryCounters: Record<string, number> = {};
 
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
@@ -283,6 +303,8 @@ async function buildPackagesFromDocx(): Promise<SeedPackage[]> {
     const parsed = parseTourLines(lines);
     const { days, nights } = parseDuration(file);
     const category = inferCategory(file);
+    const categoryIndex = categoryCounters[category] ?? 0;
+    categoryCounters[category] = categoryIndex + 1;
 
     packages.push({
       slug: slugify(parsed.title),
@@ -296,7 +318,7 @@ async function buildPackagesFromDocx(): Promise<SeedPackage[]> {
       highlights: [],
       priceFrom: null,
       priceNote: "Contact us for a custom quote",
-      coverImage: coverFor(category, i),
+      coverImage: coverFor(category, categoryIndex),
       featured: /druk path/i.test(parsed.title),
       published: true,
       itinerary: parsed.itinerary,
