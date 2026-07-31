@@ -1,18 +1,100 @@
+import Link from "next/link";
 import { getPrisma } from "@/lib/prisma";
 import EnquiryStatusSelect from "@/components/admin/EnquiryStatusSelect";
 
 export const dynamic = "force-dynamic";
 
-export default async function AdminEnquiriesPage() {
+function toDateInputValue(d: Date): string {
+  return d.toISOString().slice(0, 10);
+}
+
+function startOfDay(d: Date): Date {
+  const copy = new Date(d);
+  copy.setHours(0, 0, 0, 0);
+  return copy;
+}
+
+export default async function AdminEnquiriesPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ from?: string; to?: string }>;
+}) {
+  const { from, to } = await searchParams;
+
+  const createdAt: { gte?: Date; lte?: Date } = {};
+  if (from) createdAt.gte = startOfDay(new Date(from));
+  if (to) {
+    const end = startOfDay(new Date(to));
+    end.setHours(23, 59, 59, 999);
+    createdAt.lte = end;
+  }
+
   const prisma = getPrisma();
   const enquiries = await prisma.enquiry.findMany({
+    where: from || to ? { createdAt } : undefined,
     orderBy: { createdAt: "desc" },
     include: { package: { select: { title: true } } },
   });
 
+  const today = new Date();
+  const weekAgo = new Date(today);
+  weekAgo.setDate(weekAgo.getDate() - 7);
+  const monthAgo = new Date(today);
+  monthAgo.setDate(monthAgo.getDate() - 30);
+  const todayStr = toDateInputValue(today);
+
+  const presets = [
+    { label: "Today", from: todayStr, to: todayStr },
+    { label: "Last 7 days", from: toDateInputValue(weekAgo), to: todayStr },
+    { label: "Last 30 days", from: toDateInputValue(monthAgo), to: todayStr },
+  ];
+
   return (
     <div>
       <h1 className="font-display text-2xl font-bold text-ink mb-6">Enquiries</h1>
+
+      <form className="bg-white rounded-xl border border-slate-200 p-4 mb-6 flex flex-wrap items-end gap-3">
+        <div>
+          <label className="block text-xs font-bold uppercase text-slate-500 mb-1">From</label>
+          <input
+            type="date"
+            name="from"
+            defaultValue={from ?? ""}
+            className="border border-slate-300 rounded-lg px-3 py-2 text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-xs font-bold uppercase text-slate-500 mb-1">To</label>
+          <input
+            type="date"
+            name="to"
+            defaultValue={to ?? ""}
+            className="border border-slate-300 rounded-lg px-3 py-2 text-sm"
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-ink text-white font-bold text-sm px-5 py-2 rounded-full hover:bg-forest transition"
+        >
+          Filter
+        </button>
+        {(from || to) && (
+          <Link href="/admin/enquiries" className="text-sm text-slate-500 hover:underline px-1 py-2">
+            Clear
+          </Link>
+        )}
+        <div className="flex flex-wrap gap-2 ml-auto">
+          {presets.map((p) => (
+            <Link
+              key={p.label}
+              href={`/admin/enquiries?from=${p.from}&to=${p.to}`}
+              className="px-3 py-1.5 rounded-full border border-slate-300 text-xs text-slate-600 hover:bg-slate-100 transition"
+            >
+              {p.label}
+            </Link>
+          ))}
+        </div>
+      </form>
 
       <div className="space-y-4">
         {enquiries.map((e) => (
@@ -56,7 +138,9 @@ export default async function AdminEnquiriesPage() {
           </div>
         ))}
         {enquiries.length === 0 && (
-          <p className="text-center text-slate-500 py-12">No enquiries yet.</p>
+          <p className="text-center text-slate-500 py-12">
+            {from || to ? "No enquiries in this date range." : "No enquiries yet."}
+          </p>
         )}
       </div>
     </div>
