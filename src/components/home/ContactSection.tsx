@@ -26,8 +26,8 @@ export default function ContactSection() {
                   📞
                 </div>
                 <div>
-                  <p className="font-semibold">+975 2 334455 / +975 17112233</p>
-                  <p className="text-xs text-gray-400">HQ Office Numbers</p>
+                  <p className="font-semibold">+975 77 333 367</p>
+                  <p className="text-xs text-gray-400">HQ Office Number</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -35,7 +35,7 @@ export default function ContactSection() {
                   ✉️
                 </div>
                 <div>
-                  <p className="font-semibold">travel@yetitoursbhutan.com</p>
+                  <p className="font-semibold">yetitoursandtreck@gmail.com</p>
                   <p className="text-xs text-gray-400">Concierge Desk</p>
                 </div>
               </div>
@@ -44,16 +44,14 @@ export default function ContactSection() {
                   📍
                 </div>
                 <div>
-                  <p className="font-semibold">
-                    Changlam Plaza, Sector 4, Thimphu, Kingdom of Bhutan
-                  </p>
+                  <p className="font-semibold">Thimphu 11001, Kingdom of Bhutan</p>
                 </div>
               </div>
             </div>
 
             <div className="pt-4 border-t border-slate-100">
               <a
-                href="https://wa.me/"
+                href="https://wa.me/97577333367"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-[#25D366] text-white hover:bg-[#20ba5a] px-6 py-3 rounded-md font-bold text-sm shadow-md transition"
