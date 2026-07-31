@@ -12,17 +12,18 @@ const links = [
   { href: "/admin/enquiries", label: "Enquiries" },
 ];
 
-export function AdminNav() {
+export function AdminNav({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
 
   return (
-    <nav className="flex-1 px-3 py-4 space-y-1">
+    <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
       {links.map((l) => {
         const active = l.href === "/admin" ? pathname === "/admin" : pathname?.startsWith(l.href);
         return (
           <Link
             key={l.href}
             href={l.href}
+            onClick={onNavigate}
             className={`block rounded-lg px-3 py-2 text-sm transition-colors ${
               active ? "bg-gold text-ink font-bold" : "text-white/80 hover:bg-forest hover:text-white"
             }`}

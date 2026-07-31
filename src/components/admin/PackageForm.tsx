@@ -125,7 +125,7 @@ export default function PackageForm({
             className="w-full border border-slate-300 rounded-lg p-2.5 text-sm"
           />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Category</label>
             <select
@@ -159,7 +159,7 @@ export default function PackageForm({
             />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Nights</label>
             <input
@@ -223,7 +223,7 @@ export default function PackageForm({
             className="w-full border border-slate-300 rounded-lg p-2.5 text-sm"
           />
         </div>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block text-xs font-bold uppercase text-slate-500 mb-1">
               Price From (USD, optional)

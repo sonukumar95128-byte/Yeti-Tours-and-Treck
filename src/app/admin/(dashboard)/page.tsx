@@ -35,7 +35,7 @@ export default async function AdminDashboard() {
         ))}
       </div>
 
-      <div className="mt-8 flex gap-3">
+      <div className="mt-8 flex flex-wrap gap-3">
         <Link
           href="/admin/packages/new"
           className="bg-ink text-white font-bold text-sm px-5 py-2.5 rounded-full hover:bg-forest transition"

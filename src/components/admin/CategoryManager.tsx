@@ -66,8 +66,8 @@ export default function CategoryManager({ categories }: { categories: CategoryRo
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-        <table className="w-full text-sm">
+      <div className="bg-white rounded-xl border border-slate-200 overflow-x-auto">
+        <table className="w-full text-sm min-w-[520px]">
           <thead className="bg-slate-50 text-left text-xs uppercase text-slate-500">
             <tr>
               <th className="px-4 py-3">Label</th>
