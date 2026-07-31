@@ -14,6 +14,39 @@ function startOfDay(d: Date): Date {
   return copy;
 }
 
+const HQ_WHATSAPP_NUMBER = "97577333367";
+
+function buildWhatsAppLink(e: {
+  name: string;
+  email: string;
+  phone: string | null;
+  country: string | null;
+  package: { title: string } | null;
+  season: string | null;
+  interest: string | null;
+  travelers: number | null;
+  children: number | null;
+  message: string | null;
+}): string {
+  const lines = [
+    `New enquiry from ${e.name}`,
+    `Email: ${e.email}`,
+    e.phone ? `Phone: ${e.phone}` : null,
+    e.country ? `Country: ${e.country}` : null,
+    e.package ? `Package: ${e.package.title}` : null,
+    e.season ? `Season: ${e.season}` : null,
+    e.interest ? `Interest: ${e.interest}` : null,
+    e.travelers
+      ? `Travelers: ${e.travelers} adult(s)${e.children ? `, ${e.children} child(ren)` : ""}`
+      : null,
+    e.message ? `Message: ${e.message}` : null,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  return `https://wa.me/${HQ_WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`;
+}
+
 export default async function AdminEnquiriesPage({
   searchParams,
 }: {
@@ -128,6 +161,14 @@ export default async function AdminEnquiriesPage({
                 <span className="text-xs text-slate-400">
                   {new Date(e.createdAt).toLocaleDateString()}
                 </span>
+                <a
+                  href={buildWhatsAppLink(e)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-[#25D366] text-[#128C4A] text-xs font-semibold hover:bg-[#25D366]/10 transition"
+                >
+                  💬 WhatsApp
+                </a>
                 <EnquiryStatusSelect id={e.id} status={e.status} />
               </div>
             </div>
