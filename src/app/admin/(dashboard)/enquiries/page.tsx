@@ -49,9 +49,19 @@ export default async function AdminEnquiriesPage({
     { label: "Last 30 days", from: toDateInputValue(monthAgo), to: todayStr },
   ];
 
+  const exportHref = `/api/admin/enquiries/export${from || to ? `?${new URLSearchParams({ ...(from ? { from } : {}), ...(to ? { to } : {}) })}` : ""}`;
+
   return (
     <div>
-      <h1 className="font-display text-2xl font-bold text-ink mb-6">Enquiries</h1>
+      <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+        <h1 className="font-display text-2xl font-bold text-ink">Enquiries</h1>
+        <a
+          href={exportHref}
+          className="border border-ink text-ink font-bold text-sm px-5 py-2.5 rounded-full hover:bg-ink hover:text-white transition"
+        >
+          ⬇ Export CSV
+        </a>
+      </div>
 
       <form className="bg-white rounded-xl border border-slate-200 p-4 mb-6 flex flex-wrap items-end gap-3">
         <div>
