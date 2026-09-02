@@ -16,32 +16,32 @@ const CATEGORIES = [
 ];
 
 const COVER_IMAGES: Record<string, string[]> = {
-  // Tiger's Nest (alt angle), Buddha Dordenma, Punakha suspension bridge, Dochula Pass stupas
+  // Tiger's Nest (alt angle), Buddha Dordenma, Punakha suspension bridge, Paro mountains + temple
   cultural: [
     "https://images.unsplash.com/photo-1644495949450-9a0fe21b7376?auto=format&fit=crop&q=70&w=800",
     "https://images.unsplash.com/photo-1665732079615-322276af53d2?auto=format&fit=crop&q=70&w=800",
     "https://images.unsplash.com/photo-1650747858910-5d48a4116296?auto=format&fit=crop&q=70&w=800",
-    "https://images.unsplash.com/photo-1640242633656-b77c2fa2d958?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1578556886705-5913afc1d13f?auto=format&fit=crop&q=70&w=800",
   ],
-  // Yoga at sunrise, misty Bhutan mountainside
+  // Yoga at sunrise, Bhutanese terraced mountain village
   spiritual: [
     "https://images.unsplash.com/photo-1524863479829-916d8e77f114?auto=format&fit=crop&q=70&w=800",
-    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1636057423765-c766099ef09d?auto=format&fit=crop&q=70&w=800",
   ],
-  // Elegant lodge interior, riverside luxury valley
+  // Infinity pool overlooking misty mountains, remote alpine lodge at sunset
   luxury: [
-    "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=70&w=800",
-    "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1756244866467-f4682840070c?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1437384423356-1aed23732c43?auto=format&fit=crop&q=70&w=800",
   ],
-  // Druk Path trekkers, misty ridge, alpine mountain
+  // Druk Path trekkers with prayer flags, snow peak over a Himalayan valley, alpine mountain range
   trekking: [
     "https://images.unsplash.com/photo-1662546803799-9a1d5532514f?auto=format&fit=crop&q=70&w=800",
     "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=70&w=800",
-    "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1572109801525-0bb0272e8579?auto=format&fit=crop&q=70&w=800",
   ],
-  // Remote nature/valley (birding), romantic couple (honeymoon)
+  // Misty forest canopy (birding), romantic couple (honeymoon)
   specialty: [
-    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&q=70&w=800",
+    "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=70&w=800",
     "https://images.unsplash.com/photo-1586022045128-730988f570c9?auto=format&fit=crop&q=70&w=800",
   ],
 };
@@ -79,9 +79,9 @@ const DESTINATIONS = [
   {
     name: "Bumthang Valley",
     description: "The spiritual heartland packed with ancient myths and profound temples.",
-    // Druk Wangyal chortens (108 stupas) at Dochula Pass, central Bhutan
+    // Terraced Bhutanese mountain village in a green valley
     image:
-      "https://images.unsplash.com/photo-1640242633656-b77c2fa2d958?auto=format&fit=crop&q=70&w=500",
+      "https://images.unsplash.com/photo-1636057423765-c766099ef09d?auto=format&fit=crop&q=70&w=500",
     order: 4,
   },
   {
@@ -95,9 +95,9 @@ const DESTINATIONS = [
   {
     name: "Haa Valley",
     description: "Isolated pristine ancestral alpine valley featuring raw nomadic cultures.",
-    // Remote Bhutanese river valley framed by mountains
+    // Snow-capped Himalayan peak towering over a remote green valley
     image:
-      "https://images.unsplash.com/photo-1665394767352-81fdf6db7ceb?auto=format&fit=crop&q=70&w=500",
+      "https://images.unsplash.com/photo-1572109801525-0bb0272e8579?auto=format&fit=crop&q=70&w=500",
     order: 6,
   },
 ];
