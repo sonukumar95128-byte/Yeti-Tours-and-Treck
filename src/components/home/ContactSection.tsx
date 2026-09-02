@@ -35,7 +35,7 @@ export default function ContactSection() {
                   ✉️
                 </div>
                 <div>
-                  <p className="font-semibold">yetitoursandtreck@gmail.com</p>
+                  <p className="font-semibold">yetitoursandtrek@gmail.com</p>
                   <p className="text-xs text-gray-400">Concierge Desk</p>
                 </div>
               </div>
