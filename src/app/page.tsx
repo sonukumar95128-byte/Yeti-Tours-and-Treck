@@ -16,6 +16,13 @@ import {
 
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: { absolute: "Yeti Tours & Trek | Licensed Bhutan Tour Operator" },
+  description:
+    "Plan a Bhutan journey with Yeti Tours & Trek — licensed operator No. 50002238 in Taba, Thimphu. Culture, festivals, treks, visa and SDF arranged in one file.",
+  alternates: { canonical: "/" },
+};
+
 export default async function Home() {
   const [featured, categories, destinations, testimonials] = await Promise.all([
     getFeaturedPackages(),
