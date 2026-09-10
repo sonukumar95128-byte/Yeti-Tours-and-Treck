@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Work_Sans } from "next/font/google";
 import SiteChrome from "@/components/site/SiteChrome";
+import SmoothScroll from "@/components/site/SmoothScroll";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -33,6 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${workSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-foreground">
+        <SmoothScroll />
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
