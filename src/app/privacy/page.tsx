@@ -30,6 +30,11 @@ export default function PrivacyPage() {
             This site uses only cookies required to run the pages and the admin login. We do not run
             advertising trackers.
           </p>
+          <p>
+            We handle guest data for the purposes above and in line with the Personal Data Protection
+            Act of Bhutan 2023. Write to {COMPANY.email} for access or deletion requests that are
+            not tied to an active visa or confirmed tour file.
+          </p>
         </div>
       </div>
     </section>

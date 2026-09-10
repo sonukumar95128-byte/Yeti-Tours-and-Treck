@@ -24,7 +24,17 @@ export const COMPANY = {
   visaApplyUrl: "https://immi.gov.bt/services/",
   officialTravelUrl: "https://bhutan.travel/visa",
   officialSdfFaqUrl: "https://bhutan.travel/faqs",
+  dotEmail: "hosts@tourism.gov.bt",
+  dotPhone: "+975 17 661 974",
+  dotPhoneTel: "+97517661974",
 } as const;
+
+export const CANCELLATION = [
+  { when: "30 days or more before arrival", touring: "20% of the touring cost (typical deposit)" },
+  { when: "15–29 days before arrival", touring: "50% of the touring cost" },
+  { when: "8–14 days before arrival", touring: "75% of the touring cost" },
+  { when: "7 days or fewer, or no-show", touring: "100% of the touring cost" },
+] as const;
 
 export const SDF = {
   internationalAdultUsd: 100,
