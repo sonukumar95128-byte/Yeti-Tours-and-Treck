@@ -44,7 +44,8 @@ export default function ContactSection() {
                   📍
                 </div>
                 <div>
-                  <p className="font-semibold">Thimphu 11001, Kingdom of Bhutan</p>
+                  <p className="font-semibold">Taba, Thimphu Thromde, Thimphu</p>
+                  <p className="text-xs text-gray-400">Licence No. 50002238 · Valid to 31 Aug 2027</p>
                 </div>
               </div>
             </div>

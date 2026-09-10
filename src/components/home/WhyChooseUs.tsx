@@ -3,8 +3,8 @@ import SectionDivider from "@/components/site/SectionDivider";
 const items = [
   {
     icon: "🪪",
-    title: "Local Bhutan Experts",
-    text: "Born and raised in the kingdom, our deep roots allow us access to unique village festivals and remote monastic interactions.",
+    title: "Licensed in Bhutan",
+    text: "Yeti Tours & Trek is licensed for tour operator activities (Licence No. 50002238), based in Taba, Thimphu Thromde — we handle visa files, SDF and certified stays.",
   },
   {
     icon: "🎛",
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink mb-4">
-            Why Choose Yeti Tours &amp; Treks
+            Why Choose Yeti Tours &amp; Trek
           </h2>
           <SectionDivider />
           <p className="text-gray-600">
