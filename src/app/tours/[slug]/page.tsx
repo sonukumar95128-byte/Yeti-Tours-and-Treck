@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPackageBySlug, formatPrice, parseHighlights } from "@/lib/tours";
 import BookingForm from "@/components/tours/BookingForm";
+import { TYPICAL_EXCLUSIONS, TYPICAL_INCLUSIONS } from "@/lib/bhutan";
 
 export const dynamic = "force-dynamic";
 
@@ -11,9 +13,9 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const pkg = await getPackageBySlug(slug);
-  if (!pkg) return { title: "Tour Not Found | Yeti Tours & Treks" };
+  if (!pkg) return { title: "Tour not found" };
   return {
-    title: `${pkg.title} | Yeti Tours & Treks`,
+    title: pkg.title,
     description: pkg.summary,
   };
 }
@@ -74,6 +76,31 @@ export default async function TourDetailPage({
             </div>
           )}
 
+          <div className="border-t border-slate-100 pt-6 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <h2 className="font-bold text-ink text-lg mb-3">Typically included</h2>
+              <ul className="space-y-2 text-sm text-gray-600">
+                {TYPICAL_INCLUSIONS.map((item) => (
+                  <li key={item} className="flex items-start">
+                    <span className="text-forest mt-1 mr-2">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="font-bold text-ink text-lg mb-3">Not included</h2>
+              <ul className="space-y-2 text-sm text-gray-600">
+                {TYPICAL_EXCLUSIONS.map((item) => (
+                  <li key={item} className="flex items-start">
+                    <span className="text-slate-400 mt-1 mr-2">–</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
           {pkg.itinerary.length > 0 && (
             <div className="border-t border-slate-100 pt-6">
               <h2 className="font-bold text-ink text-lg mb-4">Day-by-Day Itinerary</h2>
@@ -96,9 +123,16 @@ export default async function TourDetailPage({
         <div className="space-y-6">
           <div className="bg-gray-50 rounded-xl p-6 border border-slate-200 sticky top-24">
             <span className="text-xs uppercase text-slate-400 font-bold tracking-wider">
-              All-Inclusive Pricing
+              Touring cost
             </span>
-            <p className="text-forest font-bold text-lg mt-1 mb-4">{priceLabel}</p>
+            <p className="text-forest font-bold text-lg mt-1 mb-2">{priceLabel}</p>
+            <p className="text-xs text-slate-500 leading-relaxed">
+              SDF (US$100 / adult / night) and the US$40 visa fee are government charges, itemised
+              on your quote.{" "}
+              <Link href="/travel-info" className="underline text-forest">
+                Visa &amp; SDF
+              </Link>
+            </p>
           </div>
           <BookingForm packageId={pkg.id} packageTitle={pkg.title} />
         </div>
