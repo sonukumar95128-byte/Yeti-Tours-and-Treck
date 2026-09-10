@@ -5,6 +5,7 @@ import { COMPANY } from "@/lib/bhutan";
 export const metadata: Metadata = {
   title: "Privacy",
   description: "How Yeti Tours & Trek handles enquiry and booking personal data.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
