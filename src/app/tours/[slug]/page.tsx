@@ -13,10 +13,26 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
   const pkg = await getPackageBySlug(slug);
-  if (!pkg) return { title: "Tour not found" };
+  if (!pkg) return { title: "Tour not found", robots: { index: false } };
+  const title = pkg.title;
+  const description = pkg.summary?.slice(0, 160) || `${pkg.title} with Yeti Tours & Trek, Bhutan.`;
   return {
-    title: pkg.title,
-    description: pkg.summary,
+    title,
+    description,
+    alternates: { canonical: `/tours/${pkg.slug}` },
+    openGraph: {
+      title: `${title} | Yeti Tours & Trek`,
+      description,
+      url: `/tours/${pkg.slug}`,
+      type: "article",
+      images: pkg.coverImage ? [{ url: pkg.coverImage, alt: pkg.title }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: pkg.coverImage ? [pkg.coverImage] : undefined,
+    },
   };
 }
 
@@ -131,7 +147,7 @@ export default async function TourDetailPage({
               on your quote. Trekking programmes require travel insurance that covers high-altitude
               evacuation before the trek starts.{" "}
               <Link href="/travel-info" className="underline text-forest">
-                Visa &amp; SDF
+                Visa & SDF
               </Link>
             </p>
           </div>
