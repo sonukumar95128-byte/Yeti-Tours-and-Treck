@@ -23,8 +23,9 @@ const faqs = [
   {
     q: "Do I have to book a licensed operator?",
     a: [
-      "Yeti Tours & Trek holds Licence No. 50002238 for Tour Operator Activities (Tourism Services), issued by the Department of Industry, Ministry of Industry, Commerce and Employment, valid until 31 August 2027. Office: Taba, Thimphu Thromde.",
-      "International visitors travel with a licensed Bhutanese guide. Treks need a trek permit and licensed trek guide. Overnight stays are in Department of Tourism–certified hotels or registered homestays.",
+      "No. Since 2022 guests may book hotels, a guide and transport separately. A licensed operator is the simpler path for visa or permit, SDF, certified stays and a single invoice.",
+      "Treks still need an accredited operator or trek guide, a trek permit and travel insurance that covers evacuation.",
+      "Yeti Tours & Trek holds Licence No. 50002238 for Tour Operator Activities (Tourism Services), Taba, Thimphu Thromde, valid until 31 August 2027. Check the listing on services.bhutan.travel.",
     ],
   },
   {

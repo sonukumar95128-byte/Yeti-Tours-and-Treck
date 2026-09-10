@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import SectionDivider from "@/components/site/SectionDivider";
-import { COMPANY } from "@/lib/bhutan";
+import { CANCELLATION, COMPANY } from "@/lib/bhutan";
 
 export const metadata: Metadata = {
   title: "Terms of booking",
@@ -51,13 +51,39 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="font-bold text-ink mb-2">4. Cancellation and refunds</h2>
-            <p>
+            <p className="mb-3">
               If we cancel a confirmed service for reasons within our control, you are entitled to a
               full refund of amounts paid to us for that service, consistent with the Tourism Rules
-              and Regulations of Bhutan 2024. Guest cancellations follow the schedule on your
-              quotation (hotel and festival tickets are often non-refundable once issued). Visa fees
-              are generally non-refundable once paid to Immigration. SDF already submitted follows
-              Immigration’s reuse or refund practice at that time.
+              and Regulations of Bhutan 2024.
+            </p>
+            <p className="mb-3">
+              If you cancel a confirmed booking, the touring-cost charges below apply unless your
+              written quotation states a different schedule. Arrival means the first night in Bhutan
+              on the confirmed itinerary.
+            </p>
+            <div className="overflow-x-auto mb-3">
+              <table className="w-full text-left text-xs border border-slate-200">
+                <thead className="bg-slate-50">
+                  <tr>
+                    <th className="p-2 font-bold text-ink">Notice before arrival</th>
+                    <th className="p-2 font-bold text-ink">Charge on touring cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {CANCELLATION.map((row) => (
+                    <tr key={row.when} className="border-t border-slate-200">
+                      <td className="p-2">{row.when}</td>
+                      <td className="p-2">{row.touring}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p>
+              Visa fees are generally non-refundable once paid to Immigration. SDF already submitted
+              follows Immigration’s reuse or refund practice at that time. Festival tickets, hotel
+              peak holds and issued air tickets follow the supplier’s rules and may be
+              non-refundable even when the table above is more generous.
             </p>
           </section>
           <section>
@@ -77,9 +103,25 @@ export default function TermsPage() {
             </p>
           </section>
           <section>
-            <h2 className="font-bold text-ink mb-2">7. Contact</h2>
-            <p>
+            <h2 className="font-bold text-ink mb-2">7. Contact and complaints</h2>
+            <p className="mb-2">
               {COMPANY.legalName} · {COMPANY.location} · {COMPANY.email} · {COMPANY.phone}
+            </p>
+            <p>
+              If we cannot resolve a complaint, you may also write to the Department of Tourism at{" "}
+              <a href={`mailto:${COMPANY.dotEmail}`} className="text-forest underline">
+                {COMPANY.dotEmail}
+              </a>{" "}
+              or call {COMPANY.dotPhone}. Official visitor information:{" "}
+              <a
+                href="https://bhutan.travel/faqs"
+                className="text-forest underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                bhutan.travel
+              </a>
+              .
             </p>
           </section>
         </div>
