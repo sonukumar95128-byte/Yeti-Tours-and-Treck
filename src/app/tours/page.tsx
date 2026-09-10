@@ -6,8 +6,9 @@ import SectionDivider from "@/components/site/SectionDivider";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Tours & Treks | Yeti Tours & Treks",
-  description: "Browse handcrafted Bhutan tour and trek packages by Yeti Tours & Treks.",
+  title: "Tours & Treks",
+  description:
+    "Bhutan tour and trek packages from Yeti Tours & Trek, licensed operator No. 50002238, Taba, Thimphu.",
 };
 
 export default async function ToursPage() {
@@ -38,8 +39,8 @@ export default async function ToursPage() {
           </h1>
           <SectionDivider />
           <p className="text-gray-600">
-            From cultural valley classics to high-altitude expeditions — find the journey that
-            matches your pace.
+            From cultural valley classics to high-altitude expeditions. Published prices are touring
+            costs; SDF (US$100 per adult per night) and visa fees are confirmed on your quote.
           </p>
         </div>
         <ToursGrid packages={packages} categories={categories} />

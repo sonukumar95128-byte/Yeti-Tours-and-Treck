@@ -3,13 +3,13 @@ import SectionDivider from "@/components/site/SectionDivider";
 const services = [
   {
     icon: "🛂",
-    title: "Bhutan Visa Assistance",
-    text: "We manage full regulatory digital visa applications directly with the Department of Immigration seamlessly.",
+    title: "Visa, permit and SDF",
+    text: "We prepare your Immigration file, coordinate the US$40 visa fee where it applies, and itemise the Sustainable Development Fee on your quote.",
   },
   {
     icon: "🏨",
-    title: "Bespoke Hotel Booking",
-    text: "Handpicked portfolio access spanning structural heritage farms up to 5-star international luxury retreats.",
+    title: "Certified stays",
+    text: "Nights are booked in Department of Tourism–certified hotels or registered village homestays — not unlicensed private rentals.",
   },
   {
     icon: "🛬",

@@ -9,7 +9,7 @@ const links = [
   { href: "/#why-choose-us", label: "About Us" },
   { href: "/tours", label: "Tours" },
   { href: "/#destinations", label: "Destinations" },
-  { href: "/#travel-guide", label: "Travel Guide" },
+  { href: "/travel-info", label: "Visa & SDF" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -23,7 +23,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center">
             <Image
               src="/brand/yeti-logo.png"
-              alt="Yeti Tours & Trek Bhutan"
+              alt="Yeti Tours & Trek, licensed tour operator, Bhutan"
               width={1536}
               height={1024}
               priority
