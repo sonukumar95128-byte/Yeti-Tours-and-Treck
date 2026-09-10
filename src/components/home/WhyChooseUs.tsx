@@ -1,43 +1,59 @@
+"use client";
+
 import SectionDivider from "@/components/site/SectionDivider";
+import InfiniteMarquee from "@/components/site/InfiniteMarquee";
 
 const items = [
   {
     icon: "🪪",
     title: "Licensed in Bhutan",
-    text: "Yeti Tours & Trek is licensed for tour operator activities (Licence No. 50002238), based in Taba, Thimphu Thromde — we handle visa files, SDF and certified stays.",
+    text: "Licence No. 50002238 in Taba, Thimphu — visa, SDF and certified stays.",
   },
   {
     icon: "🎛",
     title: "Personalized Itineraries",
-    text: "Every traveler is unique. We build flexible private routes meticulously crafted around your pacing and special interests.",
+    text: "Private routes crafted around your pace and interests.",
   },
   {
     icon: "🧑‍💼",
     title: "Professional Guides",
-    text: "Our government-licensed guides are storytelling champions fluent in history, culture, Buddhism, and ecology.",
+    text: "Licensed guides fluent in history, culture and ecology.",
   },
   {
     icon: "🚐",
-    title: "Comfortable Transportation",
-    text: "Navigate winding mountain passes safely in our premium, heavily-maintained 4WD SUVs and luxury coaster coaches.",
+    title: "Comfortable Transport",
+    text: "Maintained 4WD SUVs and coaches on mountain roads.",
   },
   {
     icon: "🎧",
-    title: "24/7 Premium Support",
-    text: "From the moment you inquire until your boarding gate back home, our operation desk tracks and supports your safety around the clock.",
+    title: "24/7 Support",
+    text: "Operations desk from first enquiry to your flight home.",
   },
   {
     icon: "🕉",
     title: "Authentic Experiences",
-    text: "Dine with farmers in traditional farmhouses, receive private blessings from senior lamas, and see the true essence of Gross National Happiness.",
+    text: "Farmhouse meals, monastery visits and festival days.",
   },
 ];
 
 export default function WhyChooseUs() {
+  const cards = items.map((item) => (
+    <article
+      key={item.title}
+      className="w-[240px] sm:w-[260px] shrink-0 bg-white border border-slate-100 rounded-sm shadow-sm px-8 py-10 text-center"
+    >
+      <div className="w-12 h-12 mx-auto mb-5 rounded-xl bg-ink text-gold flex items-center justify-center text-xl">
+        {item.icon}
+      </div>
+      <h3 className="text-base font-semibold text-ink mb-2">{item.title}</h3>
+      <p className="text-gray-500 text-sm leading-relaxed">{item.text}</p>
+    </article>
+  ));
+
   return (
-    <section id="why-choose-us" className="py-24 bg-white relative overflow-hidden">
+    <section id="why-choose-us" className="py-24 bg-mist relative overflow-hidden [--marquee-fade:#f5f7fa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <h2 className="font-display text-3xl sm:text-4xl font-bold text-ink mb-4">
             Why Choose Yeti Tours &amp; Trek
           </h2>
@@ -47,22 +63,9 @@ export default function WhyChooseUs() {
             Bhutan&apos;s strict commitment to high-value, low-impact sustainable tourism.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {items.map((item) => (
-            <div
-              key={item.title}
-              className="p-8 rounded-2xl bg-ink/5 border border-slate-100 hover:border-gold/50 transition-all duration-300 hover:shadow-xl group"
-            >
-              <div className="w-12 h-12 rounded-xl bg-ink text-gold flex items-center justify-center text-xl mb-6 shadow-md group-hover:bg-forest transition-colors">
-                {item.icon}
-              </div>
-              <h3 className="text-xl font-bold text-ink mb-3">{item.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.text}</p>
-            </div>
-          ))}
-        </div>
       </div>
+
+      <InfiniteMarquee duration={46}>{cards}</InfiniteMarquee>
     </section>
   );
 }
