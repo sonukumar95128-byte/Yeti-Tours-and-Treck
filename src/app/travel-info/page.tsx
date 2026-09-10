@@ -62,6 +62,23 @@ export default function TravelInfoPage() {
               {COMPANY.village}, {COMPANY.gewog}, {COMPANY.dzongkhag}
             </dd>
           </div>
+          <div>
+            <dt className="text-xs uppercase tracking-wider text-slate-500 font-bold">Proprietor</dt>
+            <dd className="font-semibold text-ink mt-1">{COMPANY.proprietor}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase tracking-wider text-slate-500 font-bold">Verify listing</dt>
+            <dd className="font-semibold text-ink mt-1">
+              <a
+                href={COMPANY.directoryUrl}
+                className="text-forest underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                services.bhutan.travel
+              </a>
+            </dd>
+          </div>
         </dl>
 
         <div className="space-y-8 text-sm text-gray-700 leading-relaxed">
@@ -116,16 +133,16 @@ export default function TravelInfoPage() {
             <h2 className="font-display text-xl font-bold text-ink mb-3">Guides, hotels and treks</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                International visitors travel with a licensed Bhutanese guide for the touring
-                programme. Trek days use a licensed trek guide, camp crew and a trek permit.
+                Since 2022 guests may book hotels, a guide and transport separately. Using a licensed
+                operator keeps visa or permit, SDF and certified stays on one file.
               </li>
               <li>
-                Overnight stays are in Department of Tourism–certified hotels or registered village
-                homestays — not unlicensed private rentals.
+                Overnight stays we book are in Department of Tourism–certified hotels or registered
+                village homestays — not unlicensed private rentals.
               </li>
               <li>
-                Independent backpacking without arrangements is not how entry to Bhutan works.
-                Booking through a licensed operator keeps visa, SDF, hotels and permits on one file.
+                Treks still require an accredited operator or trek guide, a trek permit, camp crew
+                where needed, and travel insurance that covers high-altitude evacuation.
               </li>
             </ul>
           </article>
@@ -153,7 +170,11 @@ export default function TravelInfoPage() {
             <a href={COMPANY.whatsapp} className="text-forest font-semibold underline">
               {COMPANY.phone}
             </a>
-            .
+            . Complaints we cannot resolve may also go to the Department of Tourism at{" "}
+            <a href={`mailto:${COMPANY.dotEmail}`} className="text-forest underline">
+              {COMPANY.dotEmail}
+            </a>{" "}
+            or {COMPANY.dotPhone}.
           </p>
         </div>
       </div>
