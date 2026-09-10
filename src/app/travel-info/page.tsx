@@ -4,7 +4,7 @@ import SectionDivider from "@/components/site/SectionDivider";
 import { COMPANY, SDF, indianSdfLine, sdfAdultLine, sdfChildLine } from "@/lib/bhutan";
 
 export const metadata: Metadata = {
-  title: "Visa, SDF & Bhutan Entry Rules | Yeti Tours & Trek",
+  title: "Visa, SDF & entry rules",
   description:
     "Current Bhutan Sustainable Development Fee, visa fee, regional permits, licensed guides and how Yeti Tours & Trek processes your trip.",
 };
@@ -34,6 +34,35 @@ export default function TravelInfoPage() {
           </a>
           . We are not a government office.
         </p>
+
+        <dl className="bg-white border border-slate-200 rounded-2xl p-6 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+          <div>
+            <dt className="text-xs uppercase tracking-wider text-slate-500 font-bold">Business name</dt>
+            <dd className="font-semibold text-ink mt-1">{COMPANY.legalName}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase tracking-wider text-slate-500 font-bold">Licence No.</dt>
+            <dd className="font-semibold text-ink mt-1">{COMPANY.licenseNo}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase tracking-wider text-slate-500 font-bold">Activity</dt>
+            <dd className="font-semibold text-ink mt-1">{COMPANY.activity}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase tracking-wider text-slate-500 font-bold">Valid until</dt>
+            <dd className="font-semibold text-ink mt-1">{COMPANY.licenseValidUntil}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase tracking-wider text-slate-500 font-bold">Issued by</dt>
+            <dd className="font-semibold text-ink mt-1">{COMPANY.issuingAuthority}</dd>
+          </div>
+          <div>
+            <dt className="text-xs uppercase tracking-wider text-slate-500 font-bold">Office</dt>
+            <dd className="font-semibold text-ink mt-1">
+              {COMPANY.village}, {COMPANY.gewog}, {COMPANY.dzongkhag}
+            </dd>
+          </div>
+        </dl>
 
         <div className="space-y-8 text-sm text-gray-700 leading-relaxed">
           <article className="bg-white border border-slate-200 rounded-2xl p-6">

@@ -4,7 +4,7 @@ import SectionDivider from "@/components/site/SectionDivider";
 import { COMPANY } from "@/lib/bhutan";
 
 export const metadata: Metadata = {
-  title: "Terms of Booking | Yeti Tours & Trek",
+  title: "Terms of booking",
   description: "Booking, payment, cancellation and responsibility terms for Yeti Tours & Trek, Bhutan.",
 };
 
