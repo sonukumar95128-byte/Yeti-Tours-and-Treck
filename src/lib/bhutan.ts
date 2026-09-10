@@ -1,0 +1,40 @@
+/** Official trade-licence and published DoT / bhutan.travel rates. */
+
+export const COMPANY = {
+  name: "Yeti Tours & Trek",
+  legalName: "Yeti Tours & Trek",
+  activity: "Tour Operator Activities (Tourism Services)",
+  licenseNo: "50002238",
+  licenseIssued: "31 August 2026",
+  licenseValidUntil: "31 August 2027",
+  issuingAuthority: "Department of Industry, Ministry of Industry, Commerce and Employment",
+  dzongkhag: "Thimphu",
+  gewog: "Thimphu Thromde",
+  village: "Taba",
+  location: "Taba, Thimphu Thromde",
+  city: "Thimphu",
+  postcode: "11001",
+  country: "Bhutan",
+  proprietor: "Nidup Tshering",
+  phone: "+975 77 333 367",
+  phoneTel: "+97577333367",
+  email: "yetitoursandtrek@gmail.com",
+  whatsapp: "https://wa.me/97577333367",
+  directoryUrl: "https://services.bhutan.travel/search/tour-operator",
+  visaApplyUrl: "https://immi.gov.bt/services/",
+  officialTravelUrl: "https://bhutan.travel/visa",
+  officialSdfFaqUrl: "https://bhutan.travel/faqs",
+} as const;
+
+export const SDF = {
+  internationalAdultUsd: 100,
+  internationalChildUsd: 50,
+  childAgeFrom: 6,
+  childAgeToExclusive: 12,
+  under6Usd: 0,
+  statutoryAdultUsd: 200,
+  concessionUntil: "31 August 2027",
+  indianAdultBtn: 1200,
+  indianChildBtn: 600,
+  visaFeeUsd: 40,
+} as const;
