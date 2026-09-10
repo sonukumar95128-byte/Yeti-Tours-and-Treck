@@ -2,7 +2,7 @@ import { COMPANY } from "@/lib/bhutan";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-  "https://yeti-tours-and-treck.vercel.app";
+  "https://www.yetitoursandtrek.com";
 
 export const DEFAULT_OG_IMAGE =
   "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200";
