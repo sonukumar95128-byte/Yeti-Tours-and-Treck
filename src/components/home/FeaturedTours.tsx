@@ -90,12 +90,13 @@ export default function FeaturedTours({
                 <div>
                   <h3 className="text-xl font-bold text-ink mb-2">{tour.title}</h3>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-3">{tour.summary}</p>
-                  <div className="flex items-center flex-wrap gap-x-4 gap-y-1 text-xs font-semibold text-slate-500 mb-6">
+                  <div className="flex items-center flex-wrap gap-x-4 gap-y-1 text-xs font-semibold text-slate-500 mb-3">
                     <span>
                       🕐 {tour.durationNights}N {tour.durationDays}D
                     </span>
                     <span>📍 {tour.locations}</span>
                   </div>
+                  <p className="text-forest text-sm font-bold mb-4">{tour.priceLabel}</p>
                 </div>
                 <Link
                   href={`/tours/${tour.slug}`}
@@ -109,6 +110,13 @@ export default function FeaturedTours({
         </div>
 
         <div className="text-center mt-12">
+          <p className="text-xs text-slate-500 mb-6 max-w-xl mx-auto">
+            “From” prices are touring costs unless noted. Sustainable Development Fee (US$100 per
+            adult per night) and the US$40 visa fee are itemised on your quote.{" "}
+            <Link href="/travel-info" className="underline text-forest">
+              How Bhutan pricing works
+            </Link>
+          </p>
           <Link
             href="/tours"
             className="inline-flex items-center border-2 border-ink text-ink hover:bg-ink hover:text-white font-bold px-8 py-3 rounded-md text-sm transition-all"

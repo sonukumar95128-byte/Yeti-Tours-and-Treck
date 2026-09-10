@@ -99,6 +99,10 @@ export default function BookingForm({
         className="w-full bg-white border border-slate-300 rounded-lg p-3 text-sm focus:outline-none focus:ring-2 focus:ring-ink"
       />
       {status === "error" && <p className="text-sm text-red-600">Something went wrong. Please try again.</p>}
+      <p className="text-[11px] text-slate-500 leading-relaxed">
+        This is a request, not a confirmed reservation. We will send a written quote with SDF, visa
+        fee and hotel category before any payment.
+      </p>
       <button
         type="submit"
         disabled={status === "sending"}
