@@ -38,3 +38,33 @@ export const SDF = {
   indianChildBtn: 600,
   visaFeeUsd: 40,
 } as const;
+
+export const TYPICAL_INCLUSIONS = [
+  "Licensed Bhutanese cultural guide (trek guide on trek days)",
+  "Private vehicle and driver for the published itinerary",
+  "DoT-certified hotels or registered village homestays (twin share unless stated)",
+  "Daily meals as specified in your confirmed itinerary",
+  "Monument and festival tickets listed in the itinerary",
+  "Bottled water in the vehicle and airport arrival assistance",
+];
+
+export const TYPICAL_EXCLUSIONS = [
+  "Sustainable Development Fee (SDF) — paid with the visa / permit",
+  "Visa or entry-permit fee (US$40 for most nationalities)",
+  "International and Paro flights",
+  "Travel insurance (required for treks)",
+  "Drinks, laundry, tips, and personal expenses",
+  "Optional activities and hotel upgrades",
+];
+
+export function sdfAdultLine(): string {
+  return `US$${SDF.internationalAdultUsd} per adult per night`;
+}
+
+export function sdfChildLine(): string {
+  return `US$${SDF.internationalChildUsd} per night for children aged ${SDF.childAgeFrom}–${SDF.childAgeToExclusive - 1}; free under ${SDF.childAgeFrom}`;
+}
+
+export function indianSdfLine(): string {
+  return `Indian nationals: Nu. ${SDF.indianAdultBtn.toLocaleString("en-IN")} per adult per night (Nu. ${SDF.indianChildBtn.toLocaleString("en-IN")} for children 6–11)`;
+}

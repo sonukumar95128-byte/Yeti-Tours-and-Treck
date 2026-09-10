@@ -17,9 +17,12 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Yeti Tours & Treks | Explore the Land of Happiness (Bhutan)",
+  title: {
+    default: "Yeti Tours & Trek | Licensed Bhutan Tour Operator",
+    template: "%s | Yeti Tours & Trek",
+  },
   description:
-    "Discover the Hidden Kingdom of Bhutan. Experience luxury, culture, spiritual journeys, and trekking with Yeti Tours & Treks — your local Bhutan experts.",
+    "Licensed Bhutanese tour operator (Licence No. 50002238) in Taba, Thimphu. Culture, treks and tailor-made journeys. We arrange visa, SDF and certified hotels.",
 };
 
 export default function RootLayout({
