@@ -202,15 +202,15 @@ export default function ContactForm() {
             <option value="" disabled>
               Select an experience
             </option>
-            <option>Culture &amp; Heritage</option>
-            <option>Trekking &amp; Hiking</option>
+            <option>Culture & Heritage</option>
+            <option>Trekking & Hiking</option>
             <option>Luxury Escape</option>
-            <option>Honeymoon &amp; Romance</option>
+            <option>Honeymoon & Romance</option>
             <option>Festival Experience</option>
             <option>Photography Tour</option>
             <option>Wellness Retreat</option>
             <option>Family Holiday</option>
-            <option>Nature &amp; Wildlife</option>
+            <option>Nature & Wildlife</option>
           </select>
         </div>
       </div>
@@ -277,9 +277,13 @@ export default function ContactForm() {
         >
           {status === "sending" ? "Sending..." : "Plan My Bhutan Journey"}
         </button>
-        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-4 text-[13px] text-slate-500 text-center">
+        <p className="mt-3 text-[11px] text-slate-500 text-center leading-relaxed">
+          Sending this form is an enquiry, not a confirmed booking. Visa, SDF and hotel dates are
+          confirmed in writing after we reply.
+        </p>
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-3 text-[13px] text-slate-500 text-center">
           <span>✔ Free Personalized Itinerary</span>
-          <span>✔ Local Bhutan Travel Experts</span>
+          <span>✔ Licensed Bhutanese operator</span>
           <span>✔ Response Within 24 Hours</span>
         </div>
       </div>
