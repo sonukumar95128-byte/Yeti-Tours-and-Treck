@@ -6,9 +6,16 @@ import SectionDivider from "@/components/site/SectionDivider";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Tours & Treks",
+  title: "Bhutan tours and treks",
   description:
-    "Bhutan tour and trek packages from Yeti Tours & Trek, licensed operator No. 50002238, Taba, Thimphu.",
+    "Culture tours, festival itineraries and Himalayan treks from Yeti Tours & Trek, licensed operator No. 50002238 in Taba, Thimphu. SDF listed separately on every quote.",
+  alternates: { canonical: "/tours" },
+  openGraph: {
+    title: "Bhutan tours and treks | Yeti Tours & Trek",
+    description:
+      "Published touring packages from a licensed Bhutanese operator. SDF and visa fees are itemised on your quote.",
+    url: "/tours",
+  },
 };
 
 export default async function ToursPage() {
