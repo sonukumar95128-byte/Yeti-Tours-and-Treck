@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import ImageUploadField from "./ImageUploadField";
 
 export interface DestinationRow {
   id: string;
@@ -121,11 +122,10 @@ export default function DestinationManager({ destinations }: { destinations: Des
           rows={2}
           className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"
         />
-        <input
+        <ImageUploadField
+          label="Image"
           value={form.image}
-          onChange={(e) => setForm((f) => ({ ...f, image: e.target.value }))}
-          placeholder="Image URL"
-          className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm"
+          onChange={(url) => setForm((f) => ({ ...f, image: url }))}
         />
         {error && <p className="text-sm text-red-600">{error}</p>}
         <div className="flex gap-3">

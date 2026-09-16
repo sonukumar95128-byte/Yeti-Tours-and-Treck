@@ -384,6 +384,19 @@ async function main() {
   const adapter = new PrismaPg({ connectionString: url });
   const prisma = new PrismaClient({ adapter });
 
+  // Seeding wipes every table. Refuse to run against a database that already
+  // has content (e.g. packages added through the admin panel) unless forced.
+  const existingPackages = await prisma.tourPackage.count();
+  if (existingPackages > 0 && !process.argv.includes("--force")) {
+    console.error(
+      `Refusing to seed: database already has ${existingPackages} tour packages. ` +
+        "Seeding deletes ALL data, including anything added in the admin panel. " +
+        "Re-run with --force only if you really want to wipe it."
+    );
+    await prisma.$disconnect();
+    process.exit(1);
+  }
+
   console.log("Clearing existing data...");
   await prisma.enquiry.deleteMany();
   await prisma.itineraryDay.deleteMany();

@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import type { CategoryOption } from "@/lib/tour-constants";
+import ImageUploadField from "./ImageUploadField";
 
 interface ItineraryDay {
   dayNumber: number;
@@ -181,15 +182,7 @@ export default function PackageForm({
             />
           </div>
         </div>
-        <div>
-          <label className="block text-xs font-bold uppercase text-slate-500 mb-1">Cover Image URL</label>
-          <input
-            value={coverImage}
-            onChange={(e) => setCoverImage(e.target.value)}
-            placeholder="https://images.unsplash.com/..."
-            className="w-full border border-slate-300 rounded-lg p-2.5 text-sm"
-          />
-        </div>
+        <ImageUploadField label="Cover Image" value={coverImage} onChange={setCoverImage} />
         <div>
           <label className="block text-xs font-bold uppercase text-slate-500 mb-1">
             Summary (shown on cards)

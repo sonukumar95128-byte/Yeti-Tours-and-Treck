@@ -386,6 +386,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Category: 'Category',
   Destination: 'Destination',
+  UploadedImage: 'UploadedImage',
   Testimonial: 'Testimonial',
   TourPackage: 'TourPackage',
   ItineraryDay: 'ItineraryDay',
@@ -405,7 +406,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "category" | "destination" | "testimonial" | "tourPackage" | "itineraryDay" | "enquiry"
+    modelProps: "category" | "destination" | "uploadedImage" | "testimonial" | "tourPackage" | "itineraryDay" | "enquiry"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -554,6 +555,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.DestinationCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.DestinationCountAggregateOutputType> | number
+        }
+      }
+    }
+    UploadedImage: {
+      payload: Prisma.$UploadedImagePayload<ExtArgs>
+      fields: Prisma.UploadedImageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.UploadedImageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.UploadedImageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>
+        }
+        findFirst: {
+          args: Prisma.UploadedImageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.UploadedImageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>
+        }
+        findMany: {
+          args: Prisma.UploadedImageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>[]
+        }
+        create: {
+          args: Prisma.UploadedImageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>
+        }
+        createMany: {
+          args: Prisma.UploadedImageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.UploadedImageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>[]
+        }
+        delete: {
+          args: Prisma.UploadedImageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>
+        }
+        update: {
+          args: Prisma.UploadedImageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>
+        }
+        deleteMany: {
+          args: Prisma.UploadedImageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.UploadedImageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.UploadedImageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>[]
+        }
+        upsert: {
+          args: Prisma.UploadedImageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$UploadedImagePayload>
+        }
+        aggregate: {
+          args: Prisma.UploadedImageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateUploadedImage>
+        }
+        groupBy: {
+          args: Prisma.UploadedImageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UploadedImageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.UploadedImageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.UploadedImageCountAggregateOutputType> | number
         }
       }
     }
@@ -915,6 +990,16 @@ export const DestinationScalarFieldEnum = {
 export type DestinationScalarFieldEnum = (typeof DestinationScalarFieldEnum)[keyof typeof DestinationScalarFieldEnum]
 
 
+export const UploadedImageScalarFieldEnum = {
+  id: 'id',
+  mimeType: 'mimeType',
+  data: 'data',
+  createdAt: 'createdAt'
+} as const
+
+export type UploadedImageScalarFieldEnum = (typeof UploadedImageScalarFieldEnum)[keyof typeof UploadedImageScalarFieldEnum]
+
+
 export const TestimonialScalarFieldEnum = {
   id: 'id',
   quote: 'quote',
@@ -1052,6 +1137,20 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Bytes'
+ */
+export type BytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes'>
+    
+
+
+/**
+ * Reference to a field of type 'Bytes[]'
+ */
+export type ListBytesFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Bytes[]'>
     
 
 
@@ -1215,6 +1314,7 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   category?: Prisma.CategoryOmit
   destination?: Prisma.DestinationOmit
+  uploadedImage?: Prisma.UploadedImageOmit
   testimonial?: Prisma.TestimonialOmit
   tourPackage?: Prisma.TourPackageOmit
   itineraryDay?: Prisma.ItineraryDayOmit

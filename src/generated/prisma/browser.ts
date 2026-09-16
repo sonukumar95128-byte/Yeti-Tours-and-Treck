@@ -28,6 +28,12 @@ export type Category = Prisma.CategoryModel
  */
 export type Destination = Prisma.DestinationModel
 /**
+ * Model UploadedImage
+ * Images uploaded from the admin panel. Stored in the database because
+ * Vercel's filesystem is read-only; served via /api/images/[id].
+ */
+export type UploadedImage = Prisma.UploadedImageModel
+/**
  * Model Testimonial
  * 
  */

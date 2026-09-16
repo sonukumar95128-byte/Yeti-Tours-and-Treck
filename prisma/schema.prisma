@@ -40,6 +40,15 @@ model Destination {
   createdAt   DateTime @default(now())
 }
 
+/// Images uploaded from the admin panel. Stored in the database because
+/// Vercel's filesystem is read-only; served via /api/images/[id].
+model UploadedImage {
+  id        String   @id @default(cuid())
+  mimeType  String
+  data      Bytes
+  createdAt DateTime @default(now())
+}
+
 model Testimonial {
   id        String   @id @default(cuid())
   quote     String

@@ -53,6 +53,7 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Category: 'Category',
   Destination: 'Destination',
+  UploadedImage: 'UploadedImage',
   Testimonial: 'Testimonial',
   TourPackage: 'TourPackage',
   ItineraryDay: 'ItineraryDay',
@@ -96,6 +97,16 @@ export const DestinationScalarFieldEnum = {
 } as const
 
 export type DestinationScalarFieldEnum = (typeof DestinationScalarFieldEnum)[keyof typeof DestinationScalarFieldEnum]
+
+
+export const UploadedImageScalarFieldEnum = {
+  id: 'id',
+  mimeType: 'mimeType',
+  data: 'data',
+  createdAt: 'createdAt'
+} as const
+
+export type UploadedImageScalarFieldEnum = (typeof UploadedImageScalarFieldEnum)[keyof typeof UploadedImageScalarFieldEnum]
 
 
 export const TestimonialScalarFieldEnum = {

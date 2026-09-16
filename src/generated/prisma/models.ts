@@ -10,6 +10,7 @@
  */
 export type * from './models/Category'
 export type * from './models/Destination'
+export type * from './models/UploadedImage'
 export type * from './models/Testimonial'
 export type * from './models/TourPackage'
 export type * from './models/ItineraryDay'
