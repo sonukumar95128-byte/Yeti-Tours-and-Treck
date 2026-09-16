@@ -10,13 +10,13 @@ const faqs = [
     a: [
       "SDF is a government levy paid by visitors to Bhutan. It funds conservation, culture and public services. It is not a hotel charge.",
       "International adults currently pay US$100 per night. Children aged 6–11 pay US$50. Children under 6 pay no SDF. This US$100 figure is a published concession on the statutory US$200 rate, advertised through 31 August 2027.",
-      "Indian nationals pay Nu. 1,200 per adult per night (Nu. 600 for children 6–11). Your written quote from Yeti Tours & Trek lists SDF separately from hotels, guide and transport.",
+      "Indian nationals pay Nu. 1,200 per adult per night (Nu. 600 for children 6–11). With Yeti Tours & Trek, SDF is already included in your package price.",
     ],
   },
   {
     q: "How do visa and entry permits work?",
     a: [
-      "Most nationalities need a visa before arrival. The visa fee is US$40 per person, one-time and usually non-refundable. Indian guests use an entry permit instead of that visa fee; SDF still applies.",
+      "Most nationalities need a visa before arrival. The visa fee is US$40 per person, one-time and usually non-refundable. Indian guests use an entry permit instead of that visa fee. Visa fee and SDF are included in all Yeti Tours & Trek packages.",
       "You can apply yourself at immi.gov.bt, or we submit the file after we have your passport scan and confirmed dates. Passports should be valid at least six months from entry.",
     ],
   },

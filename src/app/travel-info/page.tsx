@@ -107,7 +107,7 @@ export default function TravelInfoPage() {
                 per person, one-time and non-refundable.
               </li>
               <li>
-                Indian nationals use an entry permit (not the US$40 visa). SDF is still payable.
+                Indian nationals use an entry permit (not the US$40 visa). SDF still applies and is included in our package price.
               </li>
               <li>
                 Bangladesh and Maldives follow the regional process published by Immigration —
@@ -150,12 +150,12 @@ export default function TravelInfoPage() {
           <article className="bg-white border border-slate-200 rounded-2xl p-6">
             <h2 className="font-display text-xl font-bold text-ink mb-3">What our quotes include</h2>
             <p className="mb-3">
-              Published “from” prices on this website are the touring cost unless the package note
-              says otherwise. Your confirmed quotation itemises:
+              Package prices on this website already include the government fees. Your confirmed
+              quotation covers:
             </p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>SDF for each paying night</li>
-              <li>Visa or permit fee where it applies</li>
+              <li>SDF for each night in Bhutan — included</li>
+              <li>Visa or permit fee — included</li>
               <li>Guide, driver, vehicle, certified stays, meals and listed entrance fees</li>
               <li>Flights into Paro, quoted separately</li>
             </ul>

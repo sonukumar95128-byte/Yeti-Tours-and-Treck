@@ -102,7 +102,7 @@ export function faqJsonLd() {
         name: "How much is the Bhutan visa fee?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Most nationalities pay a US$40 visa fee, one-time and usually non-refundable. Indian guests use an entry permit instead of that visa fee; SDF still applies.",
+          text: "Most nationalities pay a US$40 visa fee, one-time and usually non-refundable. Indian guests use an entry permit instead of that visa fee; Visa fee and SDF are included in Yeti Tours & Trek packages.",
         },
       },
       {

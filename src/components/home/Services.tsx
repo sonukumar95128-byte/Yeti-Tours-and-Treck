@@ -7,7 +7,7 @@ const services = [
   {
     icon: "🛂",
     title: "Visa, permit and SDF",
-    text: "We prepare your Immigration file, coordinate the US$40 visa fee where it applies, and itemise the Sustainable Development Fee on your quote.",
+    text: "We prepare your Immigration file. The US$40 visa fee and the Sustainable Development Fee are included in your package price.",
   },
   {
     icon: "🏨",

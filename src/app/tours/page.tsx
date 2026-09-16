@@ -8,12 +8,12 @@ export const dynamic = "force-dynamic";
 export const metadata = {
   title: "Bhutan tours and treks",
   description:
-    "Culture tours, festival itineraries and Himalayan treks from Yeti Tours & Trek, licensed operator No. 50002238 in Taba, Thimphu. SDF listed separately on every quote.",
+    "Culture tours, festival itineraries and Himalayan treks from Yeti Tours & Trek, licensed operator No. 50002238 in Taba, Thimphu. SDF and visa fee included.",
   alternates: { canonical: "/tours" },
   openGraph: {
     title: "Bhutan tours and treks | Yeti Tours & Trek",
     description:
-      "Published touring packages from a licensed Bhutanese operator. SDF and visa fees are itemised on your quote.",
+      "Published touring packages from a licensed Bhutanese operator. SDF and visa fees are included in every package.",
     url: "/tours",
   },
 };
@@ -46,8 +46,8 @@ export default async function ToursPage() {
           </h1>
           <SectionDivider />
           <p className="text-gray-600">
-            From cultural valley classics to high-altitude expeditions. Published prices are touring
-            costs; SDF (US$100 per adult per night) and visa fees are confirmed on your quote.
+            From cultural valley classics to high-altitude expeditions. All package prices include
+            the Sustainable Development Fee (SDF) and the Bhutan visa fee — no hidden government charges.
           </p>
         </div>
         <ToursGrid packages={packages} categories={categories} />

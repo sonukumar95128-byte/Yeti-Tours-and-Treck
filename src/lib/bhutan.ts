@@ -56,11 +56,11 @@ export const TYPICAL_INCLUSIONS = [
   "Daily meals as specified in your confirmed itinerary",
   "Monument and festival tickets listed in the itinerary",
   "Bottled water in the vehicle and airport arrival assistance",
+  "Sustainable Development Fee (SDF) for every night in Bhutan",
+  "Bhutan visa fee (US$40) or entry-permit processing",
 ];
 
 export const TYPICAL_EXCLUSIONS = [
-  "Sustainable Development Fee (SDF) — paid with the visa / permit",
-  "Visa or entry-permit fee (US$40 for most nationalities)",
   "International and Paro flights",
   "Travel insurance (required for treks)",
   "Drinks, laundry, tips, and personal expenses",

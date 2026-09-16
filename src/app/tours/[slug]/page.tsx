@@ -143,8 +143,8 @@ export default async function TourDetailPage({
             </span>
             <p className="text-forest font-bold text-lg mt-1 mb-2">{priceLabel}</p>
             <p className="text-xs text-slate-500 leading-relaxed">
-              SDF (US$100 / adult / night) and the US$40 visa fee are government charges, itemised
-              on your quote. Trekking programmes require travel insurance that covers high-altitude
+              Price includes the Sustainable Development Fee (SDF) and the US$40 Bhutan visa
+              fee. Trekking programmes require travel insurance that covers high-altitude
               evacuation before the trek starts.{" "}
               <Link href="/travel-info" className="underline text-forest">
                 Visa & SDF

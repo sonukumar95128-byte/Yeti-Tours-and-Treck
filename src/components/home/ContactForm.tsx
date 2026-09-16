@@ -278,8 +278,8 @@ export default function ContactForm() {
           {status === "sending" ? "Sending..." : "Plan My Bhutan Journey"}
         </button>
         <p className="mt-3 text-[11px] text-slate-500 text-center leading-relaxed">
-          Sending this form is an enquiry, not a confirmed booking. Visa, SDF and hotel dates are
-          confirmed in writing after we reply.
+          Sending this form is an enquiry, not a confirmed booking. SDF and visa fee are included in
+          our packages; hotel dates are confirmed in writing after we reply.
         </p>
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-1 mt-3 text-[13px] text-slate-500 text-center">
           <span>✔ Free Personalized Itinerary</span>

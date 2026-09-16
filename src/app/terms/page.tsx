@@ -32,8 +32,8 @@ export default function TermsPage() {
           <section>
             <h2 className="font-bold text-ink mb-2">2. Government fees</h2>
             <p>
-              The Sustainable Development Fee and visa or permit fee are government charges. We
-              collect or coordinate them as part of your file. They follow rates published by the
+              The Sustainable Development Fee and visa or permit fee are government charges. Both
+              are included in our package prices and we pay them on your behalf. They follow rates published by the
               Department of Tourism and Immigration at the time of visa submission. See{" "}
               <Link href="/travel-info" className="text-forest underline">
                 visa and SDF

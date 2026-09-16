@@ -111,8 +111,8 @@ export default function FeaturedTours({
 
         <div className="text-center mt-12">
           <p className="text-xs text-slate-500 mb-6 max-w-xl mx-auto">
-            “From” prices are touring costs unless noted. Sustainable Development Fee (US$100 per
-            adult per night) and the US$40 visa fee are itemised on your quote.{" "}
+            All package prices include the Sustainable Development Fee (SDF) and the US$40 Bhutan
+            visa fee.{" "}
             <Link href="/travel-info" className="underline text-forest">
               How Bhutan pricing works
             </Link>
