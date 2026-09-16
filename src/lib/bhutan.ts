@@ -78,3 +78,7 @@ export function sdfChildLine(): string {
 export function indianSdfLine(): string {
   return `Indian nationals: Nu. ${SDF.indianAdultBtn.toLocaleString("en-IN")} per adult per night (Nu. ${SDF.indianChildBtn.toLocaleString("en-IN")} for children 6–11)`;
 }
+
+/** Shown when a tour has no cover image yet, so cards never render a broken image. */
+export const FALLBACK_TOUR_IMAGE =
+  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=70&w=800";

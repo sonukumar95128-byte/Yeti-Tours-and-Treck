@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { CategoryOption } from "@/lib/tour-constants";
 import type { TourCardData } from "@/components/home/FeaturedTours";
+import { FALLBACK_TOUR_IMAGE } from "@/lib/bhutan";
 
 export default function ToursGrid({
   packages,
@@ -52,7 +53,7 @@ export default function ToursGrid({
             >
               <div className="relative h-56 bg-slate-200">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={tour.coverImage} className="w-full h-full object-cover" alt={tour.title} />
+                <img src={tour.coverImage || FALLBACK_TOUR_IMAGE} className="w-full h-full object-cover" alt={tour.title} />
                 <span className="absolute top-4 left-4 bg-forest text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   {tour.categoryLabel}
                 </span>

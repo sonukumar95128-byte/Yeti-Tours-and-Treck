@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPackageBySlug, formatPrice, parseHighlights } from "@/lib/tours";
 import BookingForm from "@/components/tours/BookingForm";
-import { TYPICAL_EXCLUSIONS, TYPICAL_INCLUSIONS } from "@/lib/bhutan";
+import { FALLBACK_TOUR_IMAGE, TYPICAL_EXCLUSIONS, TYPICAL_INCLUSIONS } from "@/lib/bhutan";
 
 export const dynamic = "force-dynamic";
 
@@ -52,7 +52,7 @@ export default async function TourDetailPage({
     <div className="bg-white">
       <div
         className="relative h-80 sm:h-96 bg-cover bg-center flex items-end"
-        style={{ backgroundImage: `url('${pkg.coverImage}')` }}
+        style={{ backgroundImage: `url('${pkg.coverImage || FALLBACK_TOUR_IMAGE}')` }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/50 to-transparent" />
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 text-white w-full">

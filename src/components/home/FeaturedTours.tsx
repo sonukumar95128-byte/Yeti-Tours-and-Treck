@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { CategoryOption } from "@/lib/tour-constants";
 import SectionDivider from "@/components/site/SectionDivider";
+import { FALLBACK_TOUR_IMAGE } from "@/lib/bhutan";
 
 export interface TourCardData {
   slug: string;
@@ -81,7 +82,7 @@ export default function FeaturedTours({
               <div className="relative h-56 bg-slate-200">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={tour.coverImage}
+                  src={tour.coverImage || FALLBACK_TOUR_IMAGE}
                   className="w-full h-full object-cover"
                   alt={tour.title}
                 />
