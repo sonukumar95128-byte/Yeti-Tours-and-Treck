@@ -1,5 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getPrisma } from "@/lib/prisma";
+import { clientIp, hitRateLimit } from "@/lib/rateLimit";
+
+const MAX_PER_IP_PER_HOUR = 10;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+function text(value: unknown, max: number): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed ? trimmed.slice(0, max) : null;
+}
+
+function int(value: unknown, min: number, max: number): number | null {
+  const n = typeof value === "number" ? value : typeof value === "string" ? parseInt(value, 10) : NaN;
+  return Number.isInteger(n) && n >= min && n <= max ? n : null;
+}
 
 export async function POST(request: NextRequest) {
   const body = await request.json().catch(() => null);
@@ -20,34 +35,56 @@ export async function POST(request: NextRequest) {
     season,
     interest,
     message,
+    website,
   } = body as Record<string, unknown>;
 
-  if (typeof name !== "string" || !name.trim() || typeof email !== "string" || !email.trim()) {
-    return NextResponse.json({ error: "Name and email are required" }, { status: 400 });
+  // Honeypot: the "website" field is hidden from people, so only bots fill it in.
+  // Pretend success so they don't retry.
+  if (typeof website === "string" && website.trim()) {
+    return NextResponse.json({ id: "ok" }, { status: 201 });
   }
 
-  const toInt = (value: unknown): number | null => {
-    if (typeof value === "number") return value;
-    if (typeof value === "string" && value.trim()) return parseInt(value, 10);
-    return null;
-  };
+  if (!(await hitRateLimit("enquiry", clientIp(request), MAX_PER_IP_PER_HOUR, 60 * 60 * 1000))) {
+    return NextResponse.json(
+      { error: "Too many enquiries. Please try again later or contact us on WhatsApp." },
+      { status: 429 }
+    );
+  }
+
+  const cleanName = text(name, 120);
+  const cleanEmail = text(email, 200);
+  if (!cleanName || !cleanEmail || !EMAIL_RE.test(cleanEmail)) {
+    return NextResponse.json({ error: "A valid name and email are required" }, { status: 400 });
+  }
 
   const prisma = getPrisma();
+
+  let validPackageId: string | null = null;
+  if (typeof packageId === "string" && packageId.length <= 40) {
+    const pkg = await prisma.tourPackage.findUnique({ where: { id: packageId }, select: { id: true } });
+    validPackageId = pkg?.id ?? null;
+  }
+
+  let date: Date | null = null;
+  if (typeof travelDate === "string" && travelDate) {
+    const d = new Date(travelDate);
+    if (!Number.isNaN(d.getTime())) date = d;
+  }
 
   const enquiry = await prisma.enquiry.create({
     data: {
       type: type === "BOOKING" ? "BOOKING" : "GENERAL",
-      packageId: typeof packageId === "string" && packageId ? packageId : null,
-      name: name.trim(),
-      email: email.trim(),
-      phone: typeof phone === "string" && phone.trim() ? phone.trim() : null,
-      country: typeof country === "string" && country.trim() ? country.trim() : null,
-      travelDate: typeof travelDate === "string" && travelDate ? new Date(travelDate) : null,
-      travelers: toInt(travelers),
-      children: toInt(children),
-      season: typeof season === "string" && season ? season : null,
-      interest: typeof interest === "string" && interest ? interest : null,
-      message: typeof message === "string" && message.trim() ? message.trim() : null,
+      packageId: validPackageId,
+      name: cleanName,
+      email: cleanEmail,
+      phone: text(phone, 40),
+      country: text(country, 80),
+      travelDate: date,
+      travelers: int(travelers, 1, 100),
+      children: int(children, 0, 100),
+      season: text(season, 100),
+      interest: text(interest, 100),
+      message: text(message, 3000),
     },
   });
 

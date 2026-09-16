@@ -30,6 +30,7 @@ export default function BookingForm({
           travelDate: data.get("travelDate") || null,
           travelers: data.get("travelers") || null,
           message: data.get("message") || `Booking request for ${packageTitle}`,
+          website: data.get("website"),
         }),
       });
       if (!res.ok) throw new Error("Request failed");
@@ -55,6 +56,8 @@ export default function BookingForm({
 
   return (
     <form onSubmit={handleSubmit} className="bg-gray-50 rounded-xl p-6 border border-slate-200 space-y-4">
+      {/* Honeypot: hidden from people, bots fill it in and get ignored. */}
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <h4 className="font-bold text-ink text-lg">Request to Book This Journey</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <input

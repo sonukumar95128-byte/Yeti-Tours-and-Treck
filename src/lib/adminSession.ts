@@ -1,16 +1,24 @@
 import crypto from "crypto";
 import { cookies } from "next/headers";
 
+export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 8;
+
+// The password is mixed into the signing key, so changing ADMIN_PASSWORD
+// (or ADMIN_SESSION_SECRET) immediately logs out every existing session.
 function secret(): string {
-  const s = process.env.ADMIN_SESSION_SECRET ?? process.env.ADMIN_PASSWORD;
-  if (!s) throw new Error("ADMIN_SESSION_SECRET is not set");
-  return s;
+  const s = process.env.ADMIN_SESSION_SECRET;
+  const p = process.env.ADMIN_PASSWORD;
+  if (!s && !p) throw new Error("ADMIN_SESSION_SECRET is not set");
+  return `${s ?? ""}:${p ?? ""}`;
+}
+
+function sign(ts: string): string {
+  return crypto.createHmac("sha256", secret()).update(ts).digest("hex");
 }
 
 export function signAdminToken(): string {
   const ts = Date.now().toString();
-  const sig = crypto.createHmac("sha256", secret()).update(ts).digest("hex");
-  return `${ts}.${sig}`;
+  return `${ts}.${sign(ts)}`;
 }
 
 export function verifyAdminToken(token: string | undefined): boolean {
@@ -19,13 +27,26 @@ export function verifyAdminToken(token: string | undefined): boolean {
   if (dot === -1) return false;
   const ts = token.slice(0, dot);
   const sig = token.slice(dot + 1);
-  if (!ts || !sig) return false;
+  if (!/^\d+$/.test(ts) || !/^[0-9a-f]{64}$/.test(sig)) return false;
+
+  // Reject expired tokens server-side; the cookie's maxAge alone can be ignored by an attacker.
+  const age = Date.now() - Number(ts);
+  if (age < 0 || age > SESSION_MAX_AGE_SECONDS * 1000) return false;
+
   try {
-    const expected = crypto.createHmac("sha256", secret()).update(ts).digest("hex");
-    return crypto.timingSafeEqual(Buffer.from(expected, "hex"), Buffer.from(sig, "hex"));
+    return crypto.timingSafeEqual(Buffer.from(sign(ts), "hex"), Buffer.from(sig, "hex"));
   } catch {
     return false;
   }
+}
+
+/** Constant-time password check. */
+export function passwordMatches(input: unknown): boolean {
+  const expected = process.env.ADMIN_PASSWORD;
+  if (!expected || typeof input !== "string") return false;
+  const a = crypto.createHash("sha256").update(input).digest();
+  const b = crypto.createHash("sha256").update(expected).digest();
+  return crypto.timingSafeEqual(a, b);
 }
 
 export async function isAdminRequest(): Promise<boolean> {

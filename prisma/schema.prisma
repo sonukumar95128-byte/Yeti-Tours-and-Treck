@@ -118,3 +118,11 @@ model Enquiry {
   @@index([packageId])
   @@index([status])
 }
+
+/// Fixed-window request counters (login attempts, enquiry spam). Stored in the
+/// database because serverless instances don't share memory.
+model RateLimit {
+  key     String   @id
+  count   Int
+  resetAt DateTime
+}

@@ -9,7 +9,9 @@ function startOfDay(d: Date): Date {
 }
 
 function csvEscape(value: unknown): string {
-  const s = value === null || value === undefined ? "" : String(value);
+  let s = value === null || value === undefined ? "" : String(value);
+  // Stop spreadsheet apps from running visitor-supplied text as a formula.
+  if (/^[=+\-@\t\r]/.test(s)) s = `'${s}`;
   if (/[",\n]/.test(s)) {
     return `"${s.replace(/"/g, '""')}"`;
   }

@@ -74,6 +74,7 @@ export default function ContactForm() {
           travelers: data.get("adults"),
           children: data.get("children"),
           message: data.get("message"),
+          website: data.get("website"),
         }),
       });
       if (!res.ok) throw new Error("Request failed");
@@ -100,6 +101,8 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="lg:col-span-7 bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm space-y-6">
+      {/* Honeypot: hidden from people, bots fill it in and get ignored. */}
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <div>
           <label htmlFor="name" className="block text-xs uppercase font-bold tracking-wider text-slate-600 mb-2">

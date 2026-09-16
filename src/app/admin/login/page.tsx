@@ -20,7 +20,9 @@ export default async function AdminLoginPage({
 
         {error && (
           <p className="mb-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
-            Incorrect password.
+            {error === "locked"
+              ? "Too many login attempts. Please wait 15 minutes and try again."
+              : "Incorrect password."}
           </p>
         )}
 
